@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <h1 class="text-center text-info">Vue Leaflet App</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col-8 ">
+      <div class="col-8">
           <MarkersList :markers='markers' @removeMarker='onRemove'/>
       </div>
       <div class="col-4">
