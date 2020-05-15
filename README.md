@@ -1,5 +1,7 @@
 # leaflet-map
 
+DEMO - https://vue-leaflet-app.herokuapp.com/
+
 ## Project setup
 ```
 npm install
