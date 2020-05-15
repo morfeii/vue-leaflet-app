@@ -1,7 +1,7 @@
 <template>
     <div>
       <h3 class="heading">List of Markers</h3>
-      <table class="table table-striped">
+      <table class="table table-striped" v-if="markersList.length">
         <thead>
           <tr>
             <th scope="col">Marker</th>
@@ -66,6 +66,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="alert alert-danger" v-else>
+        You have no markers!
+      </div>
     </div>
 </template>
 
