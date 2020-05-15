@@ -1,7 +1,8 @@
 <template>
     <div>
       <h3 class="heading">List of Markers</h3>
-      <table class="table table-striped" v-if="markersList.length">
+      <div class="table-responsive" v-if="markersList.length">
+        <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Marker</th>
@@ -23,12 +24,14 @@
             </td>
             <td>
               <input
+                class="input-position"
                 v-model.number="item.position.lat"
                 type="number"
               >
             </td>
             <td>
               <input
+                class="input-position"
                 v-model.number="item.position.lng"
                 type="number"
               >
@@ -65,7 +68,8 @@
             </td>
           </tr>
         </tbody>
-      </table>
+        </table>
+      </div>
       <div class="alert alert-danger" v-else>
         You have no markers!
       </div>
@@ -94,5 +98,8 @@ export default {
 }
 .table-data {
   text-align: center
+}
+.input-position {
+  width: 100px
 }
 </style>
