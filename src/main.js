@@ -1,12 +1,20 @@
+/* eslint-disable global-require */
+/* eslint-disable no-underscore-dangle */
 import Vue from 'vue';
+import { Icon } from 'leaflet';
 import App from './App.vue';
-import router from './router';
-import store from './store';
+import './scss/main.scss';
+import 'leaflet/dist/leaflet.css';
+
+delete Icon.Default.prototype._getIconUrl;
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
   render: (h) => h(App),
 }).$mount('#app');
