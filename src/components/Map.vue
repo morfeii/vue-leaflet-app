@@ -2,24 +2,25 @@
   <div>
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center text-info">Leaflet App</h1>
+        <h1 class="text-center text-info">Vue Leaflet App</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-8 ">
-          <MarkersList :markers='markers' @removeMarker='onRemoveMarker'/>
+          <MarkersList :markers='markers' @removeMarker='onRemove'/>
       </div>
       <div class="col-4">
         <MapLayout :onAddMarker='onAddMarker' :markers='markers' />
       </div>
     </div>
-   </div>
+  </div>
 </template>
 
 <script>
 import { uuid } from 'vue-uuid';
 import MarkersList from './MarkersList.vue';
 import MapLayout from './MapLayout.vue';
+
 
 export default {
   name: 'Map',
@@ -49,7 +50,7 @@ export default {
       };
       this.markers.push(newMarker);
     },
-    onRemoveMarker({ index }) {
+    onRemove({ index }) {
       this.markers.splice(index, 1);
     },
   },

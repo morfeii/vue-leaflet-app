@@ -1,16 +1,14 @@
 <template>
 
   <div>
-    <div>
-      <button
-        name="button"
-        class="btn btn-primary"
-        @click="addMarker"
-      >
-        Add a marker
-      </button>
-      <hr>
-    </div>
+    <button
+      name="button"
+      class="btn btn-primary"
+      @click="addMarker"
+    >
+      Add a marker
+    </button>
+    <hr>
     <l-map
       :zoom.sync="zoom"
       :options="mapOptions"
@@ -42,7 +40,7 @@
       />
       <l-control-scale :imperial="imperial" />
       <l-marker
-        v-for="marker in markers1"
+        v-for="marker in markersList"
         :key="marker.id"
         :visible="marker.visible"
         :draggable="marker.draggable"
@@ -121,8 +119,7 @@ export default {
       imperial: false,
       Positions: ['topleft', 'topright', 'bottomleft', 'bottomright'],
       tileProviders,
-      markers1: this.markers,
-
+      markersList: this.markers,
     };
   },
   methods: {

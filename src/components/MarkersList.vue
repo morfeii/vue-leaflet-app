@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>List of Markers</h3>
+      <h3 class="heading">List of Markers</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -15,10 +15,12 @@
         </thead>
         <tbody>
           <tr
-            v-for="(item, index) in markers1"
+            v-for="(item, index) in markersList"
             :key="index"
           >
-            <td>{{ index + 1 }}</td>
+            <td class="table-data">
+              {{ index + 1 }}
+            </td>
             <td>
               <input
                 v-model.number="item.position.lat"
@@ -37,26 +39,29 @@
                 type="text"
               >
             </td>
-            <td style="text-align: center">
+            <td class="table-data">
               <input
                 class="form-check-input position-static"
                 v-model="item.draggable"
                 type="checkbox"
               >
             </td>
-            <td style="text-align: center">
+            <td class="table-data">
               <input
+                class="form-check-input position-static"
                 v-model="item.visible"
                 type="checkbox"
               >
             </td>
-            <td style="text-align: center">
-              <input
+            <td class="table-data">
+              <button
                 class="btn btn-danger"
                 type="button"
                 value="X"
                 @click="removeMarker(index)"
               >
+                <i class="fa fa-trash"/>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -66,10 +71,10 @@
 
 <script>
 export default {
-  props: ['markers', 'onRemoveMarker'],
+  props: ['markers'],
   data() {
     return {
-      markers1: this.markers,
+      markersList: this.markers,
     };
   },
   methods: {
@@ -81,5 +86,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
+.heading {
+  margin-bottom: 20px
+}
+.table-data {
+  text-align: center
+}
 </style>
